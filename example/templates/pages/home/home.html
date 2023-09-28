@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Home | testhtmx{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="mb-4">Mes tâches du jour</h1>
+        {% include "pages/home/hx/display-button.html" %}
+        
+        {% include "pages/home/hx/create-task--results.html" %}
+    </div>
+{% endblock content %}«

@@ -1,0 +1,7 @@
+<div hx-swap-oob="beforeend:#messages">
+    {% include "hx/messages.html" %}
+</div>
+
+{% include "pages/home/hx/display-button.html" with button_attributes='hx-swap-oob="outerHTML:#task-creation-form" data-thierry="ok"' %}
+
+{% include "pages/home/hx/create-task--results.html" %}

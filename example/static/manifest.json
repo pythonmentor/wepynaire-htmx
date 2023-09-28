@@ -1,0 +1,28 @@
+{
+  "app.css": "/static/css/app.4ad069ccbe6c1b51739c.css",
+  "app.js": "/static/js/app.9256bdd9.js",
+  "css/app.4ad069ccbe6c1b51739c.css.map": "/static/css/app.4ad069ccbe6c1b51739c.css.map",
+  "entrypoints": {
+    "app": {
+      "assets": {
+        "js": [
+          "/static/js/runtime.08ea51ac.js",
+          "/static/js/553.365b1315.js",
+          "/static/js/app.9256bdd9.js"
+        ],
+        "css": [
+          "/static/css/app.4ad069ccbe6c1b51739c.css"
+        ]
+      }
+    }
+  },
+  "js/553.365b1315.js": "/static/js/553.365b1315.js",
+  "js/553.365b1315.js.LICENSE.txt": "/static/js/553.365b1315.js.LICENSE.txt",
+  "js/553.365b1315.js.map": "/static/js/553.365b1315.js.map",
+  "js/app.9256bdd9.js.map": "/static/js/app.9256bdd9.js.map",
+  "js/runtime.08ea51ac.js.map": "/static/js/runtime.08ea51ac.js.map",
+  "runtime.js": "/static/js/runtime.08ea51ac.js",
+  "vendors/.gitkeep": "/static/vendors/.gitkeep",
+  "vendors/images/.gitkeep": "/static/vendors/images/.gitkeep",
+  "vendors/js/htmx.js": "/static/vendors/js/htmx.js"
+}
