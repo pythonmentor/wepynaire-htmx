@@ -16,7 +16,7 @@
       {% javascript_pack 'app' attrs='defer' %}
     {% endblock head_scripts %}
   </head>
-  <body class="{% block body_classes %}position-relative min-vh-100{% endblock body_classes %}" {% block body_attr %}{% endblock body_attr %}>
+  <body class="{% block body_classes %}position-relative min-vh-100{% endblock body_classes %}" {% block body_attr %}{% endblock body_attr %} hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
     <div id="messages" class="position-absolute vw-100 my-2" style="z-index:9999">
       {% include "hx/messages.html" %}
     </div>
