@@ -1,7 +1,7 @@
-# Petit exemple de Django + HTMX utilisant hx-swap-oob
+# WePynaire HTMX du 23 octobre 2023
 
 Cet exemple minimal d'application Django + HTMX a été construit avec l'objectif d'expliquer
-le comportement de l'attribut hx-swap-oob de HTMX. 
+le comportement de l'attribut hx-swap-oob et d'autres features de HTMX. 
 
 Cet attribut htmx est ici utiliser pour gérer l'affichage des messages de succès ou 
 d'erreur lors de la création d'une tâche.
