@@ -18,12 +18,12 @@ def index(request):
     return TemplateResponse(request, "pages/home/home.html", {"tasks": tasks})
 
 
-@home_router.get()
+@home_router.get
 def hx__display_button(request):
     return TemplateResponse(request, "pages/home/hx/display-button.html")
 
 
-@home_router.get()
+@home_router.get
 def hx__display_form(request):
     form = TaskCreationFrom()
     return TemplateResponse(
@@ -31,7 +31,7 @@ def hx__display_form(request):
     )
 
 
-@home_router.post()
+@home_router.post
 def hx__create_task(request):
     form = TaskCreationFrom(request.POST)
     if not form.is_valid():

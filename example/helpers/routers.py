@@ -18,6 +18,7 @@ class Router:
     def _process_decorator(
         self,
         pathfunc,
+        func=None,
         *,
         url_path=None,
         url_name=None,
@@ -57,69 +58,91 @@ class Router:
 
             return wrapper
 
-        return decorator
+        return decorator if func is None else decorator(func)
 
-    def url(self, url_path=None, url_name=None, methods=None):
+    def url(self, func=None, *, url_path=None, url_name=None, methods=None):
         return self._process_decorator(
-            path, url_path=url_path, url_name=url_name, methods=methods
+            path, func, url_path=url_path, url_name=url_name, methods=methods
         )
 
-    def get(self, url_path=None, url_name=None):
+    def get(self, func=None, *, url_path=None, url_name=None):
         return self._process_decorator(
-            path, url_path=url_path, url_name=url_name, methods=["GET"]
+            path, func, url_path=url_path, url_name=url_name, methods=["GET"]
         )
 
-    def post(self, url_path=None, url_name=None):
+    def post(self, func=None, *, url_path=None, url_name=None):
         return self._process_decorator(
-            path, url_path=url_path, url_name=url_name, methods=["POST"]
+            path, func, url_path=url_path, url_name=url_name, methods=["POST"]
         )
 
-    def put(self, url_path=None, url_name=None):
+    def put(self, func=None, *, url_path=None, url_name=None):
         return self._process_decorator(
-            path, url_path=url_path, url_name=url_name, methods=["PUT"]
+            path, func, url_path=url_path, url_name=url_name, methods=["PUT"]
         )
 
-    def patch(self, url_path=None, url_name=None):
+    def patch(self, func=None, *, url_path=None, url_name=None):
         return self._process_decorator(
-            path, url_path=url_path, url_name=url_name, methods=["PATCH"]
+            path, func, url_path=url_path, url_name=url_name, methods=["PATCH"]
         )
 
-    def delete(self, url_path=None, url_name=None):
+    def delete(self, func=None, *, url_path=None, url_name=None):
         return self._process_decorator(
             path,
+            func,
             url_path=url_path,
             url_name=url_name,
             methods=["DELETE"],
         )
 
-    def re_url(self, url_path=None, url_name=None, methods=None):
+    def re_url(self, func=None, *, url_path=None, url_name=None, methods=None):
         return self._process_decorator(
-            path, url_path=url_path, url_name=url_name, methods=methods
+            re_path,
+            func,
+            url_path=url_path,
+            url_name=url_name,
+            methods=methods,
         )
 
-    def re_get(self, url_path=None, url_name=None):
+    def re_get(self, func=None, *, url_path=None, url_name=None):
         return self._process_decorator(
-            path, url_path=url_path, url_name=url_name, methods=["GET"]
+            re_path,
+            func,
+            url_path=url_path,
+            url_name=url_name,
+            methods=["GET"],
         )
 
-    def re_post(self, url_path=None, url_name=None):
+    def re_post(self, func=None, *, url_path=None, url_name=None):
         return self._process_decorator(
-            path, url_path=url_path, url_name=url_name, methods=["POST"]
+            re_path,
+            func,
+            url_path=url_path,
+            url_name=url_name,
+            methods=["POST"],
         )
 
-    def re_put(self, url_path=None, url_name=None):
+    def re_put(self, func=None, *, url_path=None, url_name=None):
         return self._process_decorator(
-            path, url_path=url_path, url_name=url_name, methods=["PUT"]
+            re_path,
+            func,
+            url_path=url_path,
+            url_name=url_name,
+            methods=["PUT"],
         )
 
-    def re_patch(self, url_path=None, url_name=None):
+    def re_patch(self, func=None, *, url_path=None, url_name=None):
         return self._process_decorator(
-            path, url_path=url_path, url_name=url_name, methods=["PATCH"]
+            re_path,
+            func,
+            url_path=url_path,
+            url_name=url_name,
+            methods=["PATCH"],
         )
 
-    def re_delete(self, url_path=None, url_name=None):
+    def re_delete(self, func=None, *, url_path=None, url_name=None):
         return self._process_decorator(
-            path,
+            re_path,
+            func,
             url_path=url_path,
             url_name=url_name,
             methods=["DELETE"],
