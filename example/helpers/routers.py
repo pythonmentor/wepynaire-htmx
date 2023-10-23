@@ -8,11 +8,14 @@ from django.utils.log import log_response
 
 
 class Router:
+    """Router registering related views urls automatically."""
+
     class _UrlConfig:
         def __init__(self, urls):
             self.urlpatterns = urls
 
     def __init__(self):
+        """Initializes a new router object."""
         self._urlpatterns = []
 
     def _process_decorator(
@@ -24,6 +27,7 @@ class Router:
         url_name=None,
         methods=None,
     ):
+        """Implements the router decorators to register views."""
         if methods is None:
             methods = ["GET"]
 
@@ -61,31 +65,43 @@ class Router:
         return decorator if func is None else decorator(func)
 
     def url(self, func=None, *, url_path=None, url_name=None, methods=None):
+        """Decorator used to register a view with a router, using a list of
+        allowed methods."""
         return self._process_decorator(
             path, func, url_path=url_path, url_name=url_name, methods=methods
         )
 
     def get(self, func=None, *, url_path=None, url_name=None):
+        """Decorator used to register a view with a router, using the GET
+        HTTP method."""
         return self._process_decorator(
             path, func, url_path=url_path, url_name=url_name, methods=["GET"]
         )
 
     def post(self, func=None, *, url_path=None, url_name=None):
+        """Decorator used to register a view with a router, using the POST
+        HTTP method."""
         return self._process_decorator(
             path, func, url_path=url_path, url_name=url_name, methods=["POST"]
         )
 
     def put(self, func=None, *, url_path=None, url_name=None):
+        """Decorator used to register a view with a router, using the PUT
+        HTTP method."""
         return self._process_decorator(
             path, func, url_path=url_path, url_name=url_name, methods=["PUT"]
         )
 
     def patch(self, func=None, *, url_path=None, url_name=None):
+        """Decorator used to register a view with a router, using the PATCH
+        HTTP method."""
         return self._process_decorator(
             path, func, url_path=url_path, url_name=url_name, methods=["PATCH"]
         )
 
     def delete(self, func=None, *, url_path=None, url_name=None):
+        """Decorator used to register a view with a router, using the DELETE
+        HTTP method."""
         return self._process_decorator(
             path,
             func,
@@ -95,6 +111,8 @@ class Router:
         )
 
     def re_url(self, func=None, *, url_path=None, url_name=None, methods=None):
+        """Decorator used to register a view with a router, using a list of
+        allowed methods and the re_path function."""
         return self._process_decorator(
             re_path,
             func,
@@ -104,6 +122,8 @@ class Router:
         )
 
     def re_get(self, func=None, *, url_path=None, url_name=None):
+        """Decorator used to register a view with a router, using the GET HTTP
+        method and the re_path function."""
         return self._process_decorator(
             re_path,
             func,
@@ -113,6 +133,8 @@ class Router:
         )
 
     def re_post(self, func=None, *, url_path=None, url_name=None):
+        """Decorator used to register a view with a router, using the POST HTTP
+        method and the re_path function."""
         return self._process_decorator(
             re_path,
             func,
@@ -122,6 +144,8 @@ class Router:
         )
 
     def re_put(self, func=None, *, url_path=None, url_name=None):
+        """Decorator used to register a view with a router, using the PUT HTTP
+        method and the re_path function."""
         return self._process_decorator(
             re_path,
             func,
@@ -131,6 +155,8 @@ class Router:
         )
 
     def re_patch(self, func=None, *, url_path=None, url_name=None):
+        """Decorator used to register a view with a router, using the PATCH
+        HTTP method and the re_path function."""
         return self._process_decorator(
             re_path,
             func,
@@ -140,6 +166,8 @@ class Router:
         )
 
     def re_delete(self, func=None, *, url_path=None, url_name=None):
+        """Decorator used to register a view with a router, using the DELETE
+        HTTP method and the re_path function."""
         return self._process_decorator(
             re_path,
             func,
@@ -150,4 +178,6 @@ class Router:
 
     @property
     def urls(self):
+        """Returns the URL configuration for the current router, to be used
+        the django's include function."""
         return self._UrlConfig(urls=self._urlpatterns.copy())
