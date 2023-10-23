@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
-{% block title %}Home | testhtmx{% endblock title %}
+{% block title %}Accueil | WePynaire HTMX{% endblock title %}
 
 {% block content %}
     <div class="container">
         <h1 class="mb-4">Mes tâches du jour</h1>
-        {% include "pages/home/hx/display-button.html" %}
+        <a href="{% url 'task-create' %}" class="btn btn-primary mb-4">Ajouter une nouvelle tâche</a>
         
-        {% include "pages/home/hx/create-task--results.html" %}
+        {% include "pages/tasks/partials/create-task--results.html" %}
     </div>
-{% endblock content %}«
+{% endblock content %}

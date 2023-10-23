@@ -1,7 +1,0 @@
-{% load crispy_forms_tags %}
-
-<form id="task-creation-form" class="mb-4" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}' hx-post="{% url 'htmx-task-create' %}" hx-target="#my-tasks" hx-swap="outerHTML" {{ form_attributes }}>
-    {{ form|crispy }}
-    <button class="btn btn-danger" hx-get="{% url 'htmx-display-button' %}" hx-target="form" hx-swap="outerHTML">Annuler</button>
-    <button type="submit" class="btn btn-primary">Créer</button>
-</form>

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Nouvelle tâche | WePynaire HTMX{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="mb-4">Créer une nouvelle tâche</h1>
+        <form id="task-creation-form" class="mb-4" method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <a class="btn btn-danger" href="{% url 'home' %}">Annuler</a>
+            <button type="submit" class="btn btn-primary">Créer</button>
+        </form>
+        
+        {% include "pages/tasks/partials/create-task--results.html" %}
+    </div>
+{% endblock content %}

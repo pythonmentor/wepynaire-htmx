@@ -9,7 +9,7 @@ class DateTimeInput(forms.DateTimeInput):
     input_type = "datetime-local"
 
 
-class TaskCreationFrom(forms.ModelForm):
+class TaskCreationForm(forms.ModelForm):
     class Meta:
         model = Task
         fields = ("title", "due_datetime")
