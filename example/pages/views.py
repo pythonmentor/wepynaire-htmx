@@ -2,7 +2,7 @@ from django.template.response import TemplateResponse
 from django.utils import timezone
 from django.contrib import messages
 
-from .routers import Router
+from ..helpers.routers import Router
 from .models import Task
 from .forms import TaskCreationFrom
 
@@ -10,7 +10,7 @@ from .forms import TaskCreationFrom
 home_router = Router()
 
 
-@home_router.get(url_path="", url_name="home")
+@home_router.get(url_name="home")
 def index(request):
     tasks = Task.objects.filter(due_datetime__gt=timezone.now()).order_by(
         "due_datetime"
