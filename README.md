@@ -1,4 +1,4 @@
-# Petit exemple de Django + HTMX utilisant hx-swap-oob
+# WePynaire HTMX du 23 octobre 2023
 
 Cet exemple minimal d'application Django + HTMX a été construit avec l'objectif d'expliquer
 le comportement de l'attribut hx-swap-oob de HTMX. 
