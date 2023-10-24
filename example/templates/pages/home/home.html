@@ -1,12 +1,66 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{# Définition des fragments de html #}
+
+{% partialdef display_form_button %}
+    <button hx-get="{% url 'hx-display-form' %}" hx-swap="outerHTML" class="btn btn-primary mb-4" {{ button_attributes}}>Ajouter une nouvelle tâche</button>
+{% endpartialdef %}
+
+{% partialdef new_task_form %}
+    <form id="task-creation-form" class="mb-4" hx-post="{% url 'hx-create-task' %}" hx-target="#my-tasks" hx-swap="outerHTML" {{ form_attributes }}>
+        {{ form|crispy }}
+        <button class="btn btn-danger" hx-get="{% url 'hx-display-button' %}" hx-target="form" hx-swap="outerHTML">Annuler</button>
+        <button type="submit" class="btn btn-primary">Créer</button>
+    </form>
+{% endpartialdef %}
+
+{% partialdef task_list %}
+<div id="my-tasks">
+    {% for task in tasks %}
+        {% if forloop.first %}
+            <p>Voici les tâches à venir:</p>
+            <ul>
+        {% endif %}
+            <li>{{ task.title }}, due le {{ task.due_datetime|date:"j F Y" }} à {{task.due_datetime|time:"H\hi"}}</li>
+        {% if forloop.last %}</ul>{% endif %}
+    {% empty %}
+        Aucune tâche n'a encore été crée.
+    {% endfor %}
+</div>
+{% endpartialdef %}
+
+{% partialdef new_task_form_error %}
+    <div hx-swap-oob="beforeend:#messages">
+        {% include "fragments.html#messages" %}
+    </div>
+
+    {% with form_attributes='hx-swap-oob="true"' %}
+        {% partial new_task_form %}
+    {% endwith %}
+
+    {% partial task_list %} 
+{% endpartialdef new_task_form_error %}
+
+{% partialdef new_task_form_success %}
+    <div hx-swap-oob="beforeend:#messages">
+        {% include "fragments.html#messages" %}
+    </div>
+
+    {% partial display_form_button %}
+
+    {% partial task_list %}
+{% endpartialdef new_task_form_success %}
+
+{# Définition des blocks de la page #}
 
 {% block title %}Home | WePynaire HTMX{% endblock title %}
 
 {% block content %}
     <div class="container">
         <h1 class="mb-4">Mes tâches du jour</h1>
-        {% include "pages/home/hx/display-button.html" %}
+        {% partial display_form_button %}
         
-        {% include "pages/home/hx/create-task--results.html" %}
+        {% partial task_list %}
     </div>
 {% endblock content %}«

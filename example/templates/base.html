@@ -18,10 +18,10 @@
   </head>
   <body class="{% block body_classes %}position-relative min-vh-100{% endblock body_classes %}" {% block body_attr %}{% endblock body_attr %} hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
     <div id="messages" class="position-absolute vw-100 my-2" style="z-index:9999">
-      {% include "hx/messages.html" %}
+      {% include "fragments.html#messages" %}
     </div>
     
-    {% block navigation %}{% include 'partials/navigation.html' %}{% endblock navigation %}
+    {% block navigation %}{% include 'fragments.html#navigation' %}{% endblock navigation %}
     
     {% block header %}{# placer l'en-tête de la page ici #}{% endblock header %}
     
@@ -31,7 +31,7 @@
         </main>
     {% endblock outer_content %}
     
-    {% block footer %}{% include 'partials/footer.html' %}{% endblock footer %}
+    {% block footer %}{% include "fragments.html#footer" %}{% endblock footer %}
     
     {% block modal %}{# placer vos fenêtres modales ici #}{% endblock modal %}
     

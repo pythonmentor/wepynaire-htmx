@@ -20,14 +20,16 @@ def index(request):
 
 @home_router.get
 def hx__display_button(request):
-    return TemplateResponse(request, "pages/home/hx/display-button.html")
+    return TemplateResponse(
+        request, "pages/home/home.html#display_form_button"
+    )
 
 
 @home_router.get
 def hx__display_form(request):
     form = TaskCreationFrom()
     return TemplateResponse(
-        request, "pages/home/hx/display-form.html", {"form": form}
+        request, "pages/home/home.html#new_task_form", {"form": form}
     )
 
 
@@ -40,7 +42,7 @@ def hx__create_task(request):
         )
         return TemplateResponse(
             request,
-            "pages/home/hx/create-task--error.html",
+            "pages/home/home.html#new_task_form_error",
             {"form": form},
             headers={"HX-Swap": "none"},
         )
@@ -51,5 +53,5 @@ def hx__create_task(request):
     )
     messages.success(request, "Votre nouvelle tâche a été créée !")
     return TemplateResponse(
-        request, "pages/home/hx/create-task--success.html", {"tasks": tasks}
+        request, "pages/home/home.html#new_task_form_success", {"tasks": tasks}
     )
