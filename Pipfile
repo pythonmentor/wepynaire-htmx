@@ -10,6 +10,7 @@ django-environ = "*"
 pillow = "*"
 crispy-bootstrap5 = "*"
 python-webpack-boilerplate = "*"
+django-template-partials = "*"
 
 [dev-packages]
 pytest = "*"

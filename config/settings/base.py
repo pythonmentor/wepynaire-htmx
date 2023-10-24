@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     "example",
     "example.users",
     "example.pages",
+    "template_partials",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -67,6 +68,9 @@ TEMPLATES = [
         ],
         "APP_DIRS": True,
         "OPTIONS": {
+            "builtins": [
+                "template_partials.templatetags.partials",
+            ],
             "context_processors": [
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
