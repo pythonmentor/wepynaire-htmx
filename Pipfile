@@ -15,9 +15,3 @@ python-webpack-boilerplate = "*"
 pytest = "*"
 pytest-django = "*"
 django-debug-toolbar = "*"
-
-[production]
-gunicorn = "*"
-
-[requires]
-python_version = "3.11"
