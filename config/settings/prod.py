@@ -3,7 +3,7 @@ from .base import env
 
 
 SECRET_KEY = env("SECRET_KEY")
-DEBUG = False
+DEBUG = env.bool("SECRET_KEY", default=False)
 
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 
