@@ -8,7 +8,7 @@ SECRET_KEY = env(
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env("DEBUG", default=True)
+DEBUG = env.bool("DEBUG", default=True)
 
 ALLOWED_HOSTS = []
 
