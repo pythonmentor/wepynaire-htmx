@@ -14,21 +14,6 @@ PROJECT_DIR = BASE_DIR / "config"
 APPS_DIR = BASE_DIR / "example"
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env(
-    "SECRET_KEY",
-    default="django-insecure-s_!(-mt*(!omlw-&fn+&%+!i7knohfnh7ke2g9l=e696gh9!by",
-)
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env("DEBUG")
-
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
-
-
 # Application definition
 
 INSTALLED_APPS = [
